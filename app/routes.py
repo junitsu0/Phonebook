@@ -1,7 +1,7 @@
 from app import app
 from flask import render_template
 from app.forms import AddressForm
-from app.models import AddressForm, User
+from app.models import Person
 
 @app.route('/')
 def index():
@@ -10,17 +10,16 @@ def index():
         'phone': '555-968-4563',
         'address': '718 Fantastic Voyage Ave'
     }
-    return render_template('index.html', user=registry)
+    return render_template('register.html', person=registry)
 
 @app.route('/register', methods=["GET", "POST"])
 def register():
-    form = AddressForm()
-    # if the form is submitted and all the data is valid
+    form = Person()
     if form.validate_on_submit():
-        print('Form has been validated! Hooray!!!')
+        print('Form has been validated!')
         name = form.name.data
         phone = form.phone.data
         address = form.address.data
-        registry = User(name=name, phone=phone, address=address)
-        print(f"{registry.username} has been created.")
-    return render_template('signup.html', form=form)
+        registry = Person(name=name, phone=phone, address=address)
+        print(f"{registry.name} has been created.")
+    return render_template('register.html', form=form)

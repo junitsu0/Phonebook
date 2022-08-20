@@ -2,7 +2,7 @@ from app import db
 from datetime import datetime
 
 
-class AddressForm(db.Model):
+class Person(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False, unique=True)
     phone = db.Column(db.String(50), nullable=False, unique=True)
