@@ -14,12 +14,12 @@ def index():
 
 @app.route('/register', methods=["GET", "POST"])
 def register():
-    form = Person()
+    form = AddressForm()
     if form.validate_on_submit():
         print('Form has been validated!')
-        name = form.name.data
+        username = form.username.data
         phone = form.phone.data
         address = form.address.data
-        registry = Person(name=name, phone=phone, address=address)
-        print(f"{registry.name} has been created.")
+        registry = Person(username=username, phone=phone, address=address)
+        print(f"{registry.username} has been created.")
     return render_template('register.html', form=form)

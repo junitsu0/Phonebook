@@ -6,9 +6,10 @@
     <h2 class="text-center">Join the Phonebook</h2>
 
 <form method="post">
+    {{ form.csrf_token }}
     <div class="form-group">
-        {{ form.name.label }}
-        {{ form.name(class='form-control', placeholder='Enter Name') }}
+        {{ form.username.label }}
+        {{ form.username(class='form-control', placeholder='Enter Name') }}
         
         {{ form.phone.label }}
         {{ form.phone(class='form-control', placeholder='Enter Phone Number') }}
