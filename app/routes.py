@@ -10,7 +10,7 @@ def index():
         'phone': '555-968-4563',
         'address': '718 Fantastic Voyage Ave'
     }
-    return render_template('register.html', person=registry)
+    return render_template('index.html', registry=registry)
 
 @app.route('/register', methods=["GET", "POST"])
 def register():
